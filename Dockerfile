@@ -6,7 +6,7 @@ LABEL maintainer="https://fedorafans.com <hossein.a97@gmail.com>"
 #   Installation   #
 # ---------------- #
 
-ENV TILE38_VERSION=1.22.1
+ENV TILE38_VERSION=1.22.2
 
 # Install and setup all prerequisites
 RUN apk update                                                               &&\
@@ -17,7 +17,7 @@ RUN apk update                                                               &&\
     mkdir /data                                                              &&\
     chown tile38:tile38 /data                                                &&\
     curl -Lo /tmp/tile38-${TILE38_VERSION}-linux-amd64.tar.gz   https://github.com/tidwall/tile38/releases/download/${TILE38_VERSION}/tile38-${TILE38_VERSION}-linux-amd64.tar.gz  &&\
-    tar -xzvf /tmp/tile38-${TILE38_VERSION}-linux-amd64.tar.gz  -C /usr/local/bin   --strip-components=1    \
+    tar -xzvf /tmp/tile38-${TILE38_VERSION}-linux-amd64.tar.gz  -C /usr/local/bin   --strip-components=1                                                                             \
     tile38-${TILE38_VERSION}-linux-amd64/tile38-benchmark tile38-${TILE38_VERSION}-linux-amd64/tile38-server  tile38-${TILE38_VERSION}-linux-amd64/tile38-cli                      &&\
     chmod +x /usr/local/bin/tile38-benchmark  /usr/local/bin/tile38-server  /usr/local/bin/tile38-cli                                                                              &&\
     rm -rf /tmp/tile38-${TILE38_VERSION}-linux-amd64.tar.gz
